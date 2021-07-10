@@ -1,0 +1,58 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<MvcNorthWind_19301330222_8899.Models.Products>
+
+@{
+    ViewBag.Title = "产品列表";
+}
+共有 @ViewBag.s 条记录
+@using (Html.BeginForm("search", "product", FormMethod.Get))
+{
+    
+    <p>产品名称: @Html.TextBox("pname")<br />
+    产品类别: @Html.DropDownList("productCategory","All")<br />
+    供应商:@Html.DropDownList("productSupplier","All")<br />
+    <input type="submit" value="查询" /></p> 
+}
+<table>
+    <tr>
+        <th>
+           产品名称
+        </th>
+        <th>
+            供应商
+        </th>
+        <th>
+            类别
+        </th>
+        <th>
+            单价
+        </th>
+        <th>
+            库存量
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    
+    <tr>
+        <td>@Html.ActionLink(item.ProductName,"detail",new {id = item.ProductID})
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Suppliers.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categories.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitsInStock)
+        </td>
+    </tr>
+}
+
+</table>
+@Html.Pager(Model)

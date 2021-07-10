@@ -1,0 +1,44 @@
+﻿@model MvcNorthWind_19301330222_8899.Models.Products
+
+@{
+    ViewBag.Title = "产品详情";
+}
+
+
+<fieldset>
+    <legend>Products</legend>
+
+    <div class="display-label">产品名称</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductName)
+    </div>
+
+    <div class="display-label">单位数量</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QuantityPerUnit)
+    </div>
+
+    <div class="display-label">单价</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UnitPrice)
+    </div>
+
+    <div class="display-label">库存量</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UnitsInStock)
+    </div>
+
+    <div class="display-label">订购量</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UnitsOnOrder)
+    </div>
+
+    <div class="display-label">再订购量</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReorderLevel)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("返回产品列表", "Index")
+</p>

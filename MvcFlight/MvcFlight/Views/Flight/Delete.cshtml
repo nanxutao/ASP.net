@@ -1,0 +1,47 @@
+﻿@model MvcFlight.Models.Flight
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>删除确认</h2>
+
+<h3>你确认要删除此航班吗?</h3>
+<fieldset>
+
+    <div class="display-label">航班班次</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FlightName)
+    </div>
+
+    <div class="display-label">起点</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Start)
+    </div>
+
+    <div class="display-label">终点</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Destination)
+    </div>
+
+    <div class="display-label">起飞时间</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartTime)
+    </div>
+
+    <div class="display-label">结束时间</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndTime)
+    </div>
+
+    <div class="display-label">单价</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.price)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="确认" /> |
+        @Html.ActionLink("返回航班列表", "Index")
+    </p>
+}

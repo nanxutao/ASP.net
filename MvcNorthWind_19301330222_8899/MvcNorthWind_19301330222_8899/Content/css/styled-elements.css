@@ -1,0 +1,41 @@
+
+
+/* TABLE ------------------------------------------------------------*/
+
+table, td, th {
+	vertical-align:middle;
+}
+
+table {
+	border-collapse:separate;
+	border-spacing:0;
+	border-top:1px solid white;
+	margin-bottom:28px;
+	width:100%;
+	text-align: left;
+}
+
+th{
+	border-top:5px solid #555555;
+	color: #ffffff;
+	padding:10px;
+	text-transform:uppercase;
+	background-color: #49494b;
+}
+
+th a{
+	color:white;
+	text-decoration:underline;
+}
+th a:hover{
+	color:#FF0;
+	text-decoration:none;
+}
+
+td{
+	padding:10px;
+}
+
+td, th{
+	border-bottom: 1px solid #1f1f1f;
+}

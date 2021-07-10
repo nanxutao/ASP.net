@@ -1,0 +1,188 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server Compact Edition
+-- --------------------------------------------------
+-- Date Created: 06/11/2021 08:28:48
+-- Generated from EDMX file: c:\users\86187\documents\visual studio 2010\Projects\EmployeeInfo19301330222_3001\EmployeeInfo19301330222_3001\Models\EmployeeInfo.edmx
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- NOTE: if the constraint does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    ALTER TABLE [Employeeset] DROP CONSTRAINT [FK_DepartmentEmployee];
+GO
+    ALTER TABLE [EmployeeProject] DROP CONSTRAINT [FK_EmployeeProject_Employee];
+GO
+    ALTER TABLE [EmployeeProject] DROP CONSTRAINT [FK_EmployeeProject_Project];
+GO
+    ALTER TABLE [BankCardset] DROP CONSTRAINT [FK_EmployeeBankCard];
+GO
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- NOTE: if the table does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    DROP TABLE [Departmentset];
+GO
+    DROP TABLE [Employeeset];
+GO
+    DROP TABLE [Projectset];
+GO
+    DROP TABLE [BankCardset];
+GO
+    DROP TABLE [EmployeeProject];
+GO
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'Departmentset'
+CREATE TABLE [Departmentset] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [DepartmentName] nvarchar(4000)  NOT NULL,
+    [OfficeRoom] nvarchar(4000)  NULL,
+    [Telephone] nvarchar(4000)  NULL,
+    [IsDeleted] bit  NULL
+);
+GO
+
+-- Creating table 'Employeeset'
+CREATE TABLE [Employeeset] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [EmployeeName] nvarchar(4000)  NOT NULL,
+    [EmployeeNumber] nvarchar(4000)  NOT NULL,
+    [Sex] nvarchar(4000)  NOT NULL,
+    [Birthdate] datetime  NOT NULL,
+    [PhoneNumber] nvarchar(4000)  NULL,
+    [Email] nvarchar(4000)  NULL,
+    [HireDate] datetime  NULL,
+    [QuitDate] datetime  NULL,
+    [IsDeleted] bit  NULL,
+    [DepartmentID] int  NOT NULL,
+    [QQ] nvarchar(4000)  NULL
+);
+GO
+
+-- Creating table 'Projectset'
+CREATE TABLE [Projectset] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [ProjectName] nvarchar(4000)  NOT NULL,
+    [CustomerName] nvarchar(4000)  NOT NULL,
+    [CreatDate] datetime  NOT NULL,
+    [IsDeleted] bit  NULL
+);
+GO
+
+-- Creating table 'BankCardset'
+CREATE TABLE [BankCardset] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [CardNumber] nvarchar(4000)  NOT NULL,
+    [BankName] nvarchar(4000)  NOT NULL,
+    [Employee_ID] int  NOT NULL
+);
+GO
+
+-- Creating table 'EmployeeProject'
+CREATE TABLE [EmployeeProject] (
+    [Employees_ID] int  NOT NULL,
+    [Projects_ID] int  NOT NULL
+);
+GO
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [ID] in table 'Departmentset'
+ALTER TABLE [Departmentset]
+ADD CONSTRAINT [PK_Departmentset]
+    PRIMARY KEY ([ID] );
+GO
+
+-- Creating primary key on [ID] in table 'Employeeset'
+ALTER TABLE [Employeeset]
+ADD CONSTRAINT [PK_Employeeset]
+    PRIMARY KEY ([ID] );
+GO
+
+-- Creating primary key on [ID] in table 'Projectset'
+ALTER TABLE [Projectset]
+ADD CONSTRAINT [PK_Projectset]
+    PRIMARY KEY ([ID] );
+GO
+
+-- Creating primary key on [ID] in table 'BankCardset'
+ALTER TABLE [BankCardset]
+ADD CONSTRAINT [PK_BankCardset]
+    PRIMARY KEY ([ID] );
+GO
+
+-- Creating primary key on [Employees_ID], [Projects_ID] in table 'EmployeeProject'
+ALTER TABLE [EmployeeProject]
+ADD CONSTRAINT [PK_EmployeeProject]
+    PRIMARY KEY ([Employees_ID], [Projects_ID] );
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- Creating foreign key on [DepartmentID] in table 'Employeeset'
+ALTER TABLE [Employeeset]
+ADD CONSTRAINT [FK_DepartmentEmployee]
+    FOREIGN KEY ([DepartmentID])
+    REFERENCES [Departmentset]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_DepartmentEmployee'
+CREATE INDEX [IX_FK_DepartmentEmployee]
+ON [Employeeset]
+    ([DepartmentID]);
+GO
+
+-- Creating foreign key on [Employees_ID] in table 'EmployeeProject'
+ALTER TABLE [EmployeeProject]
+ADD CONSTRAINT [FK_EmployeeProject_Employee]
+    FOREIGN KEY ([Employees_ID])
+    REFERENCES [Employeeset]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Projects_ID] in table 'EmployeeProject'
+ALTER TABLE [EmployeeProject]
+ADD CONSTRAINT [FK_EmployeeProject_Project]
+    FOREIGN KEY ([Projects_ID])
+    REFERENCES [Projectset]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmployeeProject_Project'
+CREATE INDEX [IX_FK_EmployeeProject_Project]
+ON [EmployeeProject]
+    ([Projects_ID]);
+GO
+
+-- Creating foreign key on [Employee_ID] in table 'BankCardset'
+ALTER TABLE [BankCardset]
+ADD CONSTRAINT [FK_EmployeeBankCard]
+    FOREIGN KEY ([Employee_ID])
+    REFERENCES [Employeeset]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmployeeBankCard'
+CREATE INDEX [IX_FK_EmployeeBankCard]
+ON [BankCardset]
+    ([Employee_ID]);
+GO
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------

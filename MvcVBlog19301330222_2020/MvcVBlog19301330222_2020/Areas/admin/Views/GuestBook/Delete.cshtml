@@ -1,0 +1,38 @@
+﻿@model MvcVBlog19301330222_2020.Models.GuestBook
+
+@{
+    ViewBag.Title = "删除留言确认";
+}
+
+
+
+<h3>确认删除？</h3>
+<fieldset>
+    <legend>GuestBook</legend>
+
+    <div class="display-label">昵称</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nickname)
+    </div>
+
+    <div class="display-label">留言内容</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Message)
+    </div>
+
+    <div class="display-label">日期</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddDate)
+    </div>
+
+    <div class="display-label">回复</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Reply)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="删除" /> |
+        @Html.ActionLink("返回列表", "Index")
+    </p>
+}

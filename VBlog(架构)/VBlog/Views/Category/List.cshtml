@@ -1,0 +1,9 @@
+﻿@model IEnumerable<VBlog.Models.Category>
+<ul>
+@foreach (var item in Model)
+{
+    <li>
+    @Html.ActionLink(item.Name, "ListArticleByCategory", "Article", new { ID = item.ID }, null)
+    </li>
+}
+</ul>

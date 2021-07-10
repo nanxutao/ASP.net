@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EmployeeInfo19301330222_3001.Models.BankCard>
+
+@{
+    ViewBag.Title = "银行卡管理";
+}
+
+<h2>银行卡列表</h2>
+
+<p>
+    @Html.ActionLink("添加", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            卡号
+        </th>
+        <th>
+            银行
+        </th>
+        <th>
+            员工姓名
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CardNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BankName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.EmployeeName)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("详情", "Details", new { id=item.ID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

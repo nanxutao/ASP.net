@@ -1,0 +1,83 @@
+﻿@model IEnumerable<EmployeeInfo19301330222_3001.Models.Employee>
+
+@{
+    ViewBag.Title = "员工管理信息";
+}
+
+<h2>员工列表</h2>
+
+<p>
+    @Html.ActionLink("添加员工", "Create")
+</p>
+<p>
+    @Html.ActionLink("显示在职员工", "Index", new { isDeleted = false}) |
+    @Html.ActionLink("显示离职员工", "Index", new { isDeleted = true})
+</p>
+<table>
+    <tr>
+        <th>
+            姓名
+        </th>
+        <th>
+            工号
+        </th>
+        <th>
+            性别
+        </th>
+        <th>
+            出生日期
+        </th>
+        <th>
+            电话
+        </th>
+        <th>
+            邮箱
+        </th>
+        <th>
+            入职时间
+        </th>
+        <th>
+            部门
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birthdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HireDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("详情", "Details", new { id=item.ID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.ID })|
+            @if ((Boolean)!item.IsDeleted)
+            {
+                @Html.ActionLink("离职", "Delete", new { id = item.ID}) 
+            }
+        </td>
+    </tr>
+}
+
+</table>

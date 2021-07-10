@@ -1,0 +1,38 @@
+﻿@model VBlog.Models.GuestBook
+
+@{
+    ViewBag.Title = "删除确认";
+}
+
+<h2>Delete</h2>
+
+<h3>确认删除？</h3>
+<fieldset>
+    <legend>留言信息</legend>
+
+    <div class="display-label">昵称</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nickname)
+    </div>
+
+    <div class="display-label">信息</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Message)
+    </div>
+
+    <div class="display-label">日期</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddDate)
+    </div>
+
+    <div class="display-label">回复</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Reply)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="删除" /> |
+        @Html.ActionLink("返回列表", "Index")
+    </p>
+}

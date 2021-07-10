@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EmployeeInfo19301330222_3001.Models.Department>
+
+@{
+    ViewBag.Title = "部门管理";
+}
+
+<h2>部门列表</h2>
+
+<p>
+    @Html.ActionLink("添加部门", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            名称
+        </th>
+        <th>
+            办公室
+        </th>
+        <th>
+            电话
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartmentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OfficeRoom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telephone)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("详情", "Details", new { id=item.ID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,25 @@
+﻿@model EmployeeInfo19301330222_3001.Models.BankCard
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>BankCard</legend>
+
+    <div class="display-label">CardNumber</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CardNumber)
+    </div>
+
+    <div class="display-label">BankName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BankName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

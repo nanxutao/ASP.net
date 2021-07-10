@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MvcBookList19301330222_0009.Models.Book>
+
+@{
+    ViewBag.Title = "图书查询";
+}
+@using (Html.BeginForm("index", "home", FormMethod.Get))
+{
+    <p>图书名称：@Html.TextBox("bookname")<br />
+     <input type="submit" value="查询" /></p>
+}
+<table>
+    <tr>
+        <th>
+            ISBN
+        </th>
+        <th>
+            书名
+        </th>
+        <th>
+            作者
+        </th>
+        <th>
+            出版社
+        </th>
+        <th>
+            出版日期
+        </th>
+        <th>
+            单价
+        </th>
+        <th>
+            大小
+        </th>
+        <th>
+            重量
+        </th>
+        <th>
+            开本
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.isbn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bookName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.press)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pressDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.format)
+        </td>
+    </tr>
+}
+
+</table>

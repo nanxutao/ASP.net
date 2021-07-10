@@ -1,0 +1,34 @@
+﻿@model MvcFlight.Models.Passenger
+
+@{
+    ViewBag.Title = "乘客详情";
+}
+
+<h2>乘客详情</h2>
+
+<fieldset>
+
+    <div class="display-label">姓名</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">性别</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sex)
+    </div>
+
+    <div class="display-label">生日</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BirthDay)
+    </div>
+
+    <div class="display-label">电话</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("返回列表", "Index")
+</p>

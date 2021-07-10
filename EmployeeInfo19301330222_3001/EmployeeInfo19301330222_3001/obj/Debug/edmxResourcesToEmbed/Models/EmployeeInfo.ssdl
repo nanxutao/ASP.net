@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeInfo.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EmployeeInfoStoreContainer">
+    <EntitySet Name="Departmentset" EntityType="EmployeeInfo.Store.Departmentset" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employeeset" EntityType="EmployeeInfo.Store.Employeeset" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Projectset" EntityType="EmployeeInfo.Store.Projectset" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BankCardset" EntityType="EmployeeInfo.Store.BankCardset" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployeeProject" EntityType="EmployeeInfo.Store.EmployeeProject" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="DepartmentEmployee" Association="EmployeeInfo.Store.DepartmentEmployee">
+      <End Role="Department" EntitySet="Departmentset" />
+      <End Role="Employee" EntitySet="Employeeset" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeProject_Employee" Association="EmployeeInfo.Store.FK_EmployeeProject_Employee">
+      <End Role="Employee" EntitySet="Employeeset" />
+      <End Role="EmployeeProject" EntitySet="EmployeeProject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeProject_Project" Association="EmployeeInfo.Store.FK_EmployeeProject_Project">
+      <End Role="Project" EntitySet="Projectset" />
+      <End Role="EmployeeProject" EntitySet="EmployeeProject" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeBankCard" Association="EmployeeInfo.Store.EmployeeBankCard">
+      <End Role="Employee" EntitySet="Employeeset" />
+      <End Role="BankCard" EntitySet="BankCardset" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Departmentset">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" Nullable="false" />
+    <Property Name="OfficeRoom" Type="nvarchar" Nullable="true" />
+    <Property Name="Telephone" Type="nvarchar" Nullable="true" />
+    <Property Name="IsDeleted" Type="bit" Nullable="true" DefaultValue="false" />
+  </EntityType>
+  <EntityType Name="Employeeset">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeName" Type="nvarchar" Nullable="false" />
+    <Property Name="EmployeeNumber" Type="nvarchar" Nullable="false" />
+    <Property Name="Sex" Type="nvarchar" Nullable="false" />
+    <Property Name="Birthdate" Type="datetime" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" Nullable="true" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" />
+    <Property Name="HireDate" Type="datetime" Nullable="true" />
+    <Property Name="QuitDate" Type="datetime" Nullable="true" />
+    <Property Name="IsDeleted" Type="bit" Nullable="true" DefaultValue="false" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="QQ" Type="nvarchar" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Projectset">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" Nullable="false" />
+    <Property Name="CreatDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="true" DefaultValue="false" />
+  </EntityType>
+  <EntityType Name="BankCardset">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardNumber" Type="nvarchar" Nullable="false" />
+    <Property Name="BankName" Type="nvarchar" Nullable="false" />
+    <Property Name="Employee_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeProject">
+    <Key>
+      <PropertyRef Name="Employees_ID" />
+      <PropertyRef Name="Projects_ID" />
+    </Key>
+    <Property Name="Employees_ID" Type="int" Nullable="false" />
+    <Property Name="Projects_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="DepartmentEmployee">
+    <End Role="Department" Type="EmployeeInfo.Store.Departmentset" Multiplicity="1" />
+    <End Role="Employee" Type="EmployeeInfo.Store.Employeeset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeBankCard">
+    <End Role="Employee" Type="EmployeeInfo.Store.Employeeset" Multiplicity="1" />
+    <End Role="BankCard" Type="EmployeeInfo.Store.BankCardset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BankCard">
+        <PropertyRef Name="Employee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeProject_Employee">
+    <End Role="Employee" Type="EmployeeInfo.Store.Employeeset" Multiplicity="1" />
+    <End Role="EmployeeProject" Type="EmployeeInfo.Store.EmployeeProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmployeeProject">
+        <PropertyRef Name="Employees_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeProject_Project">
+    <End Role="EmployeeProject" Type="EmployeeInfo.Store.EmployeeProject" Multiplicity="*" />
+    <End Role="Project" Type="EmployeeInfo.Store.Projectset" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmployeeProject">
+        <PropertyRef Name="Projects_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

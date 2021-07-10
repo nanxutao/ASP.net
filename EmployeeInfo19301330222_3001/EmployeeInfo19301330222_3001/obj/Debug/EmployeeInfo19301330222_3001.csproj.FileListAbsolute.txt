@@ -1,0 +1,7 @@
+c:\users\86187\documents\visual studio 2010\Projects\EmployeeInfo19301330222_3001\EmployeeInfo19301330222_3001\bin\EmployeeInfo19301330222_3001.dll
+c:\users\86187\documents\visual studio 2010\Projects\EmployeeInfo19301330222_3001\EmployeeInfo19301330222_3001\bin\EmployeeInfo19301330222_3001.pdb
+c:\users\86187\documents\visual studio 2010\Projects\EmployeeInfo19301330222_3001\EmployeeInfo19301330222_3001\bin\EntityFramework.dll
+c:\users\86187\documents\visual studio 2010\Projects\EmployeeInfo19301330222_3001\EmployeeInfo19301330222_3001\bin\EntityFramework.xml
+c:\users\86187\documents\visual studio 2010\Projects\EmployeeInfo19301330222_3001\EmployeeInfo19301330222_3001\obj\Debug\EmployeeInfo19301330222_3001.dll
+c:\users\86187\documents\visual studio 2010\Projects\EmployeeInfo19301330222_3001\EmployeeInfo19301330222_3001\obj\Debug\EmployeeInfo19301330222_3001.pdb
+C:\Users\86187\Documents\Visual Studio 2010\Projects\EmployeeInfo19301330222_3001\EmployeeInfo19301330222_3001\obj\Debug\EmployeeInfo19301330222_3001.csprojResolveAssemblyReference.cache

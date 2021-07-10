@@ -1,0 +1,52 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@using VBlog.Helpers;
+@model PagedList<VBlog.Models.GuestBook>
+
+@{
+    ViewBag.Title = "留言列表";
+}
+
+<h2>留言列表</h2>
+
+
+<table>
+    <tr>
+        <th>
+            昵称
+        </th>
+        <th>
+            留言
+        </th>
+        <th>
+            日期
+        </th>
+        <th>
+            回复
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Message).ToString().Truncate(20)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reply)
+        </td>
+        <td>
+            @Html.ActionLink("回复", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("查看", "Details", new { id=item.ID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+@Html.Pager(Model)

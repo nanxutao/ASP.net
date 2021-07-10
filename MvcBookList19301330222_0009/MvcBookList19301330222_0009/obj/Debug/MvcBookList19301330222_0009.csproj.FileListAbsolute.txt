@@ -1,0 +1,7 @@
+c:\users\86187\documents\visual studio 2010\Projects\MvcBookList19301330222_0009\MvcBookList19301330222_0009\bin\MvcBookList19301330222_0009.dll
+c:\users\86187\documents\visual studio 2010\Projects\MvcBookList19301330222_0009\MvcBookList19301330222_0009\bin\MvcBookList19301330222_0009.pdb
+c:\users\86187\documents\visual studio 2010\Projects\MvcBookList19301330222_0009\MvcBookList19301330222_0009\bin\EntityFramework.dll
+c:\users\86187\documents\visual studio 2010\Projects\MvcBookList19301330222_0009\MvcBookList19301330222_0009\bin\EntityFramework.xml
+c:\users\86187\documents\visual studio 2010\Projects\MvcBookList19301330222_0009\MvcBookList19301330222_0009\obj\Debug\MvcBookList19301330222_0009.dll
+c:\users\86187\documents\visual studio 2010\Projects\MvcBookList19301330222_0009\MvcBookList19301330222_0009\obj\Debug\MvcBookList19301330222_0009.pdb
+C:\Users\86187\documents\visual studio 2010\Projects\MvcBookList19301330222_0009\MvcBookList19301330222_0009\obj\Debug\MvcBookList19301330222_0009.csprojResolveAssemblyReference.cache

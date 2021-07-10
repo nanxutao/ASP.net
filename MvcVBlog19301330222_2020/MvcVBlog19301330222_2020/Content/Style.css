@@ -1,0 +1,107 @@
+@charset "utf-8";
+body { margin:0; padding:0; width:100%; background:#2e597b url(images/main_bg.gif) top repeat-x; }
+html { padding:0; margin:0; }
+
+/********** header **********/
+.block_header { margin:0 auto; width:900px; }
+
+/********** middle **********/
+.middle { padding:0; margin:0; }
+.middle h2 { font:normal 24px Georgia, "Times New Roman", Times, serif; color:#373737; padding:10px 5px; margin:0; }
+.middle h3 { font:normal 18px Georgia, "Times New Roman", Times, serif; color:#373737; padding:10px 5px; }
+.middle a {font: normal 12px Georgia, "Times New Roman", Times, serif; color:#2e597b; text-decoration:none; }
+.middle ul { list-style:none; margin:0; padding:0; }
+.middle li {padding:5px 30px; margin:0; border-bottom:1px solid #eaeaea; }
+.middle  ul li a:hover { color:#2e5a7c; text-decoration:underline; }
+.middle em { font:italic 11px Georgia, "Times New Roman", Times, serif; color:#8d8d8d; line-height:1.8em; padding:10px 0 0 10px; }
+.body_resize { width:900px; margin:0 auto; padding:0; background:#fff; border-bottom:5px solid #0e0e0e; }
+
+/*******************mainbody*****************/
+.mainbody { width:570px; margin:5px 15px; float:right; padding:5px 10px; }
+.mainbody title{ font:12px;}
+.mainbody content{ font:12px;}
+.mainbody li{ background:url(images/Sub_ul_li.gif) left no-repeat; }
+
+/********** footer **********/
+.footer { padding:30px 0px; margin:0 auto; }
+.footer .resize div { width:966px; color:#d6e8f5; font:normal 11px Tahoma, Geneva, sans-serif; text-align:left; margin:0 auto;}
+.footer .resize div p { padding:0; margin:0; float:right;  padding-right:80px; }
+.footer .resize div img { margin:0; padding:0; }
+.footer .resize div a { color:#d6e8f5; font:normal 11px Tahoma, Geneva, sans-serif; padding:0 1px; }
+
+/*Search bar*/
+.SearchBar { font: normal 11px Georgia, "Times New Roman", Times, serif; color:#d6e8f5;padding:10px 60px 40px 0px; margin:44px 0 0 0; width:150px; float:right; }
+
+/* menu */	
+.menu { padding:0; margin:0; width:900px;; height:53px; background: url(images/bg_menu.gif) top repeat-x; }
+.menu ul { padding:0; margin:0 30px 0 0; list-style:none; border:0; float: left; }
+.menu ul li { float:left; margin:0; padding:0; border-right:1px solid #303030; border-left:1px solid #0a0a0a; }
+.menu ul li a { float:left; margin:0 1px 0 0; padding:15px 40px; color:#fff; font:normal 14px Georgia, "Times New Roman", Times, serif; text-decoration:none; }
+.menu ul li a:hover { background: url(images/hover.gif) left repeat-x; }
+.menu ul li a.active { background: url(images/hover.gif) left repeat-x; }
+
+/* article */	
+.content{font:normal 12px Georgia, "Times New Roman", Times, serif; color:#2e597b; text-decoration:none;}
+.note{font:normal 12px Georgia, "Times New Roman", Times, serif; color:#2e597b; text-decoration:none;padding:5px;}
+
+/* guess book */	
+.gbook2 { background-color:#f2f3eb; padding:8px 10px; 
+	FONT: 12px Georgia, "Times New Roman", Times, serif; COLOR: #2e597b; TEXT-DECORATION: none; margin-top:5px; margin-bottom:5px
+}
+.gbook_r{PADDING: 5px;}
+.list{font:normal 12px Georgia, "Times New Roman", Times, serif; color:#2e597b; text-decoration:none;}
+.note1 {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 15px; PADDING-RIGHT: 35px; FONT: 12px Georgia, "Times New Roman", Times, serif; color:#2e597b;PADDING-TOP: 5px;  margin-bottom:10px; margin-bottom:15px; background:url(images/icoh.png); background-repeat:no-repeat
+}
+/*News */
+.News { width:200px; float: left; margin:5px 8px; padding:5px 2px; }
+.News ul { list-style:none; margin:0; padding:0; }
+.News li { padding:5px 15px; margin:0; border-bottom:1px solid #eaeaea; }
+.News ul li a { font: normal 11px Georgia, "Times New Roman", Times, serif; color:#3a3c3c; text-decoration:none; }
+.News ul li a:hover { color:#2e5a7c; text-decoration:underline; }
+
+/********** footer **********/
+.footer { padding:30px 0px; margin:0 auto; }
+.footer .resize div { width:966px; color:#d6e8f5; font:normal 11px Tahoma, Geneva, sans-serif; text-align:left; margin:0 auto;}
+.footer .resize div p { padding:0; margin:0; float:right;  padding-right:80px; }
+.footer .resize div img { margin:0; padding:0; }
+.footer .resize div a { color:#d6e8f5; font:normal 11px Tahoma, Geneva, sans-serif; padding:0 1px; }
+
+/********** misc **********/
+.resize { width:900px; margin:0 auto; } 
+p.clr,
+.clr { clear:both; padding:0; margin:0; background:none; }
+.list_xw {
+	FONT: 12px Georgia, "Times New Roman", Times, serif; COLOR: #2e597b; TEXT-DECORATION: none; padding:10px; background-color:#f2f3eb; margin:10px 0
+}
+.list_fl {
+	FONT: 12px Georgia, "Times New Roman", Times, serif; COLOR: #2e597b; TEXT-DECORATION: none; padding:10px; background-color:#e2f9e3; margin:10px 0
+}
+.list_lj {
+	FONT: 12px Georgia, "Times New Roman", Times, serif; COLOR: #2e597b; TEXT-DECORATION: none; padding:10px; background-color:#f4f4f4; margin:10px 0
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color:Red;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+

@@ -1,0 +1,9 @@
+c:\users\86187\documents\visual studio 2010\Projects\MvcVBlog19301330222_2020\MvcVBlog19301330222_2020\bin\MvcVBlog19301330222_2020.dll
+c:\users\86187\documents\visual studio 2010\Projects\MvcVBlog19301330222_2020\MvcVBlog19301330222_2020\bin\MvcVBlog19301330222_2020.pdb
+c:\users\86187\documents\visual studio 2010\Projects\MvcVBlog19301330222_2020\MvcVBlog19301330222_2020\bin\EntityFramework.dll
+c:\users\86187\documents\visual studio 2010\Projects\MvcVBlog19301330222_2020\MvcVBlog19301330222_2020\bin\MvcCaptcha.dll
+c:\users\86187\documents\visual studio 2010\Projects\MvcVBlog19301330222_2020\MvcVBlog19301330222_2020\bin\MvcPager.dll
+c:\users\86187\documents\visual studio 2010\Projects\MvcVBlog19301330222_2020\MvcVBlog19301330222_2020\bin\EntityFramework.xml
+c:\users\86187\documents\visual studio 2010\Projects\MvcVBlog19301330222_2020\MvcVBlog19301330222_2020\obj\Debug\MvcVBlog19301330222_2020.dll
+c:\users\86187\documents\visual studio 2010\Projects\MvcVBlog19301330222_2020\MvcVBlog19301330222_2020\obj\Debug\MvcVBlog19301330222_2020.pdb
+C:\Users\86187\Documents\Visual Studio 2010\Projects\MvcVBlog19301330222_2020\MvcVBlog19301330222_2020\obj\Debug\MvcVBlog19301330222_2020.csprojResolveAssemblyReference.cache

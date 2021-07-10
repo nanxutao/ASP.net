@@ -1,0 +1,203 @@
+/*
+	Version 1.2
+*/
+
+
+
+/* GENERAL ------------------------------------------------------------*/
+
+html,
+body{ height: 100%; }
+
+body {
+	background: #f1f1f1 url(../images/bg.png) repeat;
+	color: #606060;
+	margin:0;
+	line-height: 1em;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+}
+
+
+/* WRAPPER ------------------------------------------------------------*/
+
+#wrapper{
+	overflow: hidden;
+	width: 965px;
+	/*height:600px;*/
+	min-height: 100%;
+	padding-bottom: 15px;
+	background:url(../images/sidebar.png) repeat-y;
+}
+
+
+/* SIDEBAR ------------------------------------------------------------*/
+
+#sidebar{
+	width: 285px;
+	float: left;
+}
+
+.sidebar-divider{
+	clear: both;
+	width: 235px;
+	height: 6px;
+	margin: 21px 0px 21px 15px;
+}
+
+#sidebar #logo a{
+	display: block;
+	position: relative;
+	margin-left: 0px;
+	padding-top: 25px;
+	margin-bottom: 20px;
+	text-align:center;
+	font-size:26px;
+	color:#FF0;
+	background: url(../images/sidebar-divider.png) no-repeat;
+}
+
+
+/* SEARCH FORM ------------------------------------------------------------*/
+
+#sidebar #searchform{
+	display: block;
+	position: relative;
+	margin-left: 15px;
+	padding-top: 25px;
+	margin-bottom: 20px;
+	background: url(../images/sidebar-divider.png) no-repeat;
+}
+
+#sidebar #searchform #s{
+	width: 175px;
+	height: 26px;
+	padding: 0px 10px;
+	margin: 0px;
+	border: 0;
+	color: #a5a3a0;
+	line-height:26px;
+	background: url(../images/search-bg.png) no-repeat transparent 0px 0px;
+}
+
+#sidebar #searchform #category{
+	width: 175px;
+	height: 26px;
+	padding: 0px 10px;
+	margin: 5px 0 0 0;
+	border: 0;
+	color: #a5a3a0;
+	line-height:26px;
+	background: url(../images/search-bg.png) no-repeat transparent 0px 0px;
+}
+
+#sidebar #searchform #searchsubmit{
+	/*position: absolute; 
+	top: 25px;
+	left: 195px;*/
+	width: 34px;
+	height: 26px;
+	border: 0px;
+	background: url(../images/search-submit.png) no-repeat  transparent 0px 0px;
+	cursor:pointer;
+}
+
+#sidebar #searchform #searchsubmit:hover{
+	background-position: 0px -26px;
+}
+
+
+/* SIDEBAR - CATEGORIES ---------------------------------------------------*/
+
+#sidebar .cat-list{
+	
+	margin-bottom: 20px;
+	margin-left: 15px;
+	margin-right: 36px;
+	padding:25px 0 0 0;
+	background: url(../images/sidebar-divider.png) no-repeat; 
+}
+
+#sidebar .cat-list ul{
+	list-style-type: none;
+	clear: both;display: block;overflow: hidden;
+	padding:0;
+	margin:0;
+	
+}
+
+#sidebar .cat-list li{
+	float:left;
+}
+
+#sidebar .cat-list a{
+	display: block;
+	width: 95px;
+	margin-right: 17px;
+	padding-left: 5px;
+	
+	font-size: 12px;
+	line-height: 40px;
+	text-decoration: none;
+	background: url(../images/sidebar-line-divider.png) repeat-x bottom center;
+}
+
+#sidebar .cat-list a:hover {
+	color: #ecc731;
+}
+
+#sidebar h6{
+	font-family: Tahoma, arial;
+	font-weight: normal;
+	font-size: 16px;
+	margin:0 0 20px 0;
+}
+
+#sidebar, #sidebar a {
+color: #f4f2ea;
+}
+
+
+/* MAIN ------------------------------------------------------------*/
+
+#main{
+	width: 680px;
+	float: left;
+}
+
+/* HEADER ------------------------------------------------------------*/
+
+#header{
+	height: 105px;
+	margin-bottom: 15px;
+	position: relative;
+	background: url(../images/header.png) no-repeat center;
+}
+
+#header #page-title{
+	padding-top:32px;
+	padding-left:60px;
+	color: #fefefe;
+	font-size: 18px;
+	line-height: 1em;
+}
+
+#header #breadcrumbs{
+	padding-top:10px;
+	padding-left:60px;
+	color: #a1a1a1;
+	font-size: 12px;
+}
+
+/* CONTENT ------------------------------------------------------------*/
+
+#content{
+	width: 654px;
+	margin: 0px 12px;
+}
+
+#page-content{
+	width: 594px;
+	margin: 0px 30px;
+}
+

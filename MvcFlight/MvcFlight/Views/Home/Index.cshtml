@@ -1,0 +1,72 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<MvcFlight.Models.Flight>
+
+@{
+    ViewBag.Title = "航班查询";
+}
+
+<h2>航班查询</h2>
+<h5>共有 @ViewBag.Count 条记录</h5>
+@using (Html.BeginForm("search", "home", FormMethod.Get))
+{
+    <p>航班班次:@Html.TextBox("flightname")</p>
+    <p>出发地:@Html.TextBox("start")    目的地:@Html.TextBox("end")</p>
+    <input type = "submit" value = "查询" />
+    <p>
+        
+         @Html.ActionLink("显示已飞航班", "Search", new { temp = false })|
+         @Html.ActionLink("显示未飞航班", "Search", new { temp = true })
+    </p>
+    <p>@Html.ActionLink("重新查询", "Index")</p>
+    
+    
+}
+<table>
+    <tr>
+        <th>
+            班次
+        </th>
+        <th>
+            起点
+        </th>
+        <th>
+            终点
+        </th>
+        <th>
+            起飞时间
+        </th>
+        <th>
+            到达时间
+        </th>
+        <th>
+            价格
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlightName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Start)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+    </tr>
+}
+
+</table>
+@Html.Pager(Model)

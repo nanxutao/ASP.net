@@ -1,0 +1,65 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@model PagedList<MvcFlight.Models.Flight>
+
+@{
+    ViewBag.Title = "主页";
+}
+
+<h2>主页</h2>
+
+<p>
+    @Html.ActionLink("添加航班", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            航班班次
+        </th>
+        <th>
+            起点
+        </th>
+        <th>
+            终点
+        </th>
+        <th>
+            开始时间
+        </th>
+        <th>
+            结束时间
+        </th>
+        <th>
+            价格
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlightName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Start)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.id }) |
+            @Html.ActionLink("详情", "Details", new { id=item.id }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
+@Html.Pager(Model)

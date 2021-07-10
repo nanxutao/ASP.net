@@ -1,0 +1,35 @@
+﻿@model MvcVBlog19301330222_2020.Models.GuestBook
+
+@{
+    ViewBag.Title = "留言详情";
+}
+
+
+
+<fieldset>
+    <legend>留言详情</legend>
+
+    <div class="display-label">昵称</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nickname)
+    </div>
+
+    <div class="display-label">留言内容</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Message)
+    </div>
+
+    <div class="display-label">日期</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddDate)
+    </div>
+
+    <div class="display-label">回复</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Reply)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("回复", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("返回列表", "Index")
+</p>

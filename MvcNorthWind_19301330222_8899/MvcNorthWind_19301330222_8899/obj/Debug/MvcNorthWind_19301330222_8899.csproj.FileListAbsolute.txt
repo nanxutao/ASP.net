@@ -1,0 +1,8 @@
+c:\users\86187\documents\visual studio 2010\Projects\MvcNorthWind_19301330222_8899\MvcNorthWind_19301330222_8899\bin\MvcNorthWind_19301330222_8899.dll
+c:\users\86187\documents\visual studio 2010\Projects\MvcNorthWind_19301330222_8899\MvcNorthWind_19301330222_8899\bin\MvcNorthWind_19301330222_8899.pdb
+c:\users\86187\documents\visual studio 2010\Projects\MvcNorthWind_19301330222_8899\MvcNorthWind_19301330222_8899\bin\EntityFramework.dll
+c:\users\86187\documents\visual studio 2010\Projects\MvcNorthWind_19301330222_8899\MvcNorthWind_19301330222_8899\bin\EntityFramework.xml
+c:\users\86187\documents\visual studio 2010\Projects\MvcNorthWind_19301330222_8899\MvcNorthWind_19301330222_8899\obj\Debug\MvcNorthWind_19301330222_8899.csprojResolveAssemblyReference.cache
+c:\users\86187\documents\visual studio 2010\Projects\MvcNorthWind_19301330222_8899\MvcNorthWind_19301330222_8899\obj\Debug\MvcNorthWind_19301330222_8899.dll
+c:\users\86187\documents\visual studio 2010\Projects\MvcNorthWind_19301330222_8899\MvcNorthWind_19301330222_8899\obj\Debug\MvcNorthWind_19301330222_8899.pdb
+c:\users\86187\documents\visual studio 2010\Projects\MvcNorthWind_19301330222_8899\MvcNorthWind_19301330222_8899\bin\MvcPager.dll

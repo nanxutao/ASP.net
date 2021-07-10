@@ -1,0 +1,43 @@
+﻿@model MvcVBlog19301330222_2020.Models.Article
+
+@{
+    ViewBag.Title = "文章删除确认";
+}
+
+
+
+<h3>你确定要删除这篇文章吗？</h3>
+<fieldset>
+    <legend>文章详情</legend>
+
+    <div class="display-label">标题</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">内容</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Content)
+    </div>
+
+    <div class="display-label">日期</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.addDate)
+    </div>
+
+    <div class="display-label">浏览次数</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hit)
+    </div>
+
+    <div class="display-label">分类</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category.Name)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="删除" /> |
+        @Html.ActionLink("返回列表", "Index")
+    </p>
+}

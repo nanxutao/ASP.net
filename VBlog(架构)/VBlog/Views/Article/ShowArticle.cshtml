@@ -1,0 +1,21 @@
+﻿@model VBlog.Models.Article
+           
+@{
+    ViewBag.Title = "文章详情";
+}
+
+<center>
+<p><strong><@Model.Title></strong></p>
+</center>
+<div class="content">
+@Model.Content
+</div>
+<br />
+<div class="note">
+添加日期:@Model.addDate.ToShortDateString() &nbsp; 浏览量:
+@Model.Hit &nbsp; 来源：@Model.Category.Name &nbsp;&nbsp;<br/>
+<br/>
+<ul>
+</ul>
+</div>
+<div class="clr"></div>

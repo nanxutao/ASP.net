@@ -1,0 +1,32 @@
+﻿@model IEnumerable<VBlog.Models.Category>
+
+@{
+    ViewBag.Title = "分类列表";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("新建分类", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            分类名称
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EmployeeInfo" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="EmployeeInfoContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Departmentset" EntityType="EmployeeInfo.Department" />
+    <EntitySet Name="Employeeset" EntityType="EmployeeInfo.Employee" />
+    <EntitySet Name="Projectset" EntityType="EmployeeInfo.Project" />
+    <EntitySet Name="BankCardset" EntityType="EmployeeInfo.BankCard" />
+    <AssociationSet Name="DepartmentEmployee" Association="EmployeeInfo.DepartmentEmployee">
+      <End Role="Department" EntitySet="Departmentset" />
+      <End Role="Employee" EntitySet="Employeeset" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeProject" Association="EmployeeInfo.EmployeeProject">
+      <End Role="Employee" EntitySet="Employeeset" />
+      <End Role="Project" EntitySet="Projectset" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeBankCard" Association="EmployeeInfo.EmployeeBankCard">
+      <End Role="Employee" EntitySet="Employeeset" />
+      <End Role="BankCard" EntitySet="BankCardset" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DepartmentName" Nullable="false" />
+    <Property Type="String" Name="OfficeRoom" Nullable="true" />
+    <Property Type="String" Name="Telephone" Nullable="true" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" DefaultValue="false" />
+    <NavigationProperty Name="Employees" Relationship="EmployeeInfo.DepartmentEmployee" FromRole="Department" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="EmployeeName" Nullable="false" />
+    <Property Type="String" Name="EmployeeNumber" Nullable="false" />
+    <Property Type="String" Name="Sex" Nullable="false" />
+    <Property Type="DateTime" Name="Birthdate" Nullable="false" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" />
+    <Property Type="DateTime" Name="HireDate" Nullable="true" />
+    <Property Type="DateTime" Name="QuitDate" Nullable="true" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" DefaultValue="false" />
+    <NavigationProperty Name="Department" Relationship="EmployeeInfo.DepartmentEmployee" FromRole="Employee" ToRole="Department" />
+    <Property Type="Int32" Name="DepartmentID" Nullable="false" />
+    <NavigationProperty Name="Projects" Relationship="EmployeeInfo.EmployeeProject" FromRole="Employee" ToRole="Project" />
+    <NavigationProperty Name="BankCard" Relationship="EmployeeInfo.EmployeeBankCard" FromRole="Employee" ToRole="BankCard" />
+    <Property Type="String" Name="QQ" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ProjectName" Nullable="false" />
+    <Property Type="String" Name="CustomerName" Nullable="false" />
+    <Property Type="DateTime" Name="CreatDate" Nullable="false" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" DefaultValue="false" />
+    <NavigationProperty Name="Employees" Relationship="EmployeeInfo.EmployeeProject" FromRole="Project" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="BankCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CardNumber" Nullable="false" />
+    <Property Type="String" Name="BankName" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="EmployeeInfo.EmployeeBankCard" FromRole="BankCard" ToRole="Employee" />
+  </EntityType>
+  <Association Name="DepartmentEmployee">
+    <End Type="EmployeeInfo.Department" Role="Department" Multiplicity="1" />
+    <End Type="EmployeeInfo.Employee" Role="Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeProject">
+    <End Type="EmployeeInfo.Employee" Role="Employee" Multiplicity="*" />
+    <End Type="EmployeeInfo.Project" Role="Project" Multiplicity="*" />
+  </Association>
+  <Association Name="EmployeeBankCard">
+    <End Type="EmployeeInfo.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="EmployeeInfo.BankCard" Role="BankCard" Multiplicity="0..1" />
+  </Association>
+</Schema>

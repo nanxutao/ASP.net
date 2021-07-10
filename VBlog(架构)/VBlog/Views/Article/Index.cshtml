@@ -1,0 +1,21 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@using VBlog.Helpers
+@model PagedList<VBlog.Models.Article>
+
+@{
+    ViewBag.Title = "最新文章";
+}
+
+<h5>最新文章</h5>
+@foreach (var item in Model)
+{
+    <ul><li>@Html.ActionLink(item.Title, "showArticle", new{ ID = item.ID })</li></ul>
+    <div class='content'>@item.Content.Truncate(100)</div>
+    <div class = 'notel'>
+        &nbsp;&nbsp;评论(0)
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        添加日期:@item.addDate.ToShortDateString()
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浏览：@item.Hit
+        </div>
+}
+@Html.Pager(Model)

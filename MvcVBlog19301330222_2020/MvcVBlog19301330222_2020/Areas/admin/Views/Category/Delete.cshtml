@@ -1,0 +1,22 @@
+﻿@model MvcVBlog19301330222_2020.Models.Category
+
+@{
+    ViewBag.Title = "删除分类确认";
+}
+
+
+<h3>确认删除？</h3>
+<fieldset>
+    <legend>分类信息</legend>
+
+    <div class="display-label">分类名称</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="删除" /> |
+        @Html.ActionLink("返回列表", "Index")
+    </p>
+}

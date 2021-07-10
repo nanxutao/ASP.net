@@ -1,0 +1,44 @@
+﻿@model MvcFlight.Models.Flight
+
+@{
+    ViewBag.Title = "详情";
+}
+
+<h2>详情</h2>
+
+<fieldset>
+
+    <div class="display-label">航班班次</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FlightName)
+    </div>
+
+    <div class="display-label">起点</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Start)
+    </div>
+
+    <div class="display-label">终点</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Destination)
+    </div>
+
+    <div class="display-label">开始时间</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartTime)
+    </div>
+
+    <div class="display-label">结束时间</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndTime)
+    </div>
+
+    <div class="display-label">价格</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.price)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("返回列表", "Index")
+</p>

@@ -1,0 +1,61 @@
+﻿@model MvcBookList19301330222_0009.Models.Book
+
+@{
+    ViewBag.Title = "图书详情";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Book</legend>
+
+    <div class="display-label">ISBN</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isbn)
+    </div>
+
+    <div class="display-label">书名</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.bookName)
+    </div>
+
+    <div class="display-label">作者</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.author)
+    </div>
+
+    <div class="display-label">出版社</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.press)
+    </div>
+
+    <div class="display-label">出版日期</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.pressDate)
+    </div>
+
+    <div class="display-label">单价</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.price)
+    </div>
+
+
+    <div class="display-label">大小</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.size)
+    </div>
+
+    <div class="display-label">重量</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.weight)
+    </div>
+
+    <div class="display-label">开本</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.format)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("返回图书列表", "Index")
+</p>

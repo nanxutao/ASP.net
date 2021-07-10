@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EmployeeInfoStoreContainer" CdmEntityContainer="EmployeeInfoContainer">
+    <EntitySetMapping Name="Departmentset">
+      <EntityTypeMapping TypeName="IsTypeOf(EmployeeInfo.Department)">
+        <MappingFragment StoreEntitySet="Departmentset">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="OfficeRoom" ColumnName="OfficeRoom" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employeeset">
+      <EntityTypeMapping TypeName="IsTypeOf(EmployeeInfo.Employee)">
+        <MappingFragment StoreEntitySet="Employeeset">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="EmployeeNumber" ColumnName="EmployeeNumber" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="QuitDate" ColumnName="QuitDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="QQ" ColumnName="QQ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projectset">
+      <EntityTypeMapping TypeName="IsTypeOf(EmployeeInfo.Project)">
+        <MappingFragment StoreEntitySet="Projectset">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankCardset">
+      <EntityTypeMapping TypeName="IsTypeOf(EmployeeInfo.BankCard)">
+        <MappingFragment StoreEntitySet="BankCardset">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EmployeeProject" TypeName="EmployeeInfo.EmployeeProject" StoreEntitySet="EmployeeProject">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="ID" ColumnName="Employees_ID" />
+      </EndProperty>
+      <EndProperty Name="Project">
+        <ScalarProperty Name="ID" ColumnName="Projects_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmployeeBankCard" TypeName="EmployeeInfo.EmployeeBankCard" StoreEntitySet="BankCardset">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="ID" ColumnName="Employee_ID" />
+      </EndProperty>
+      <EndProperty Name="BankCard">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

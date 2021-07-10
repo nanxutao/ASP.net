@@ -1,0 +1,63 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model PagedList<MvcVBlog19301330222_2020.Models.GuestBook>
+@{
+    ViewBag.Title = "留言列表";
+} 
+<h5>
+博客留言
+</h5>
+<div class="list">
+<ul>
+@foreach (var m in Model)
+{ 
+<div class="gbook">@m.Nickname<span>/@m.AddDate</span></div>
+    <div class="gbook2">@m.Message</div>
+    if (m.Reply != null)
+    {
+        <fieldset style="border:#cccccc solid 1px; margin-bottom: 5px; margin-top:3px;">
+        <legend style="margin-left:20px; color:#f00">回复: &nbsp;@m.Nickname</legend>
+        <div class="gbook_r">@m.Reply</div>
+        </fieldset> 
+    }
+}
+</ul>
+</div>
+@Html.Pager(Model)
+<br />
+<br />
+<br />
+<div class="gbook2">
+@using (Html.BeginForm())
+{
+<table width="500" border="0" cellpadding="1" cellspacing="1">
+<tr>
+<td width="80" align="center">
+昵&nbsp;&nbsp;称
+</td>
+<td>
+<input type="text" name="nickName" value="@ViewBag.Nickname"/>
+@Html.ValidationMessage("nickname")
+</td>
+</tr>
+<tr>
+<td align="center">内&nbsp;&nbsp;容:</td>
+<td>
+<textarea cols="50" rows="6" name="message">@ViewBag.Message</textarea><br />
+@Html.ValidationMessage("message")
+</td></tr>
+<tr>
+<td></td>
+<td>
+@Html.MvcCaptcha()
+<span id="capthaImage"></span><br /><br />
+请输入上边图片中的文字：
+<input  type="text" name="_mvcCaptchaText" id="_mvcCaptchaText"/>
+@Html.ValidationMessage("_mvcCaptchaText")
+</td>
+</tr>
+<tr>
+<td></td>
+<td><input type="submit" value="留言"/></td></tr>
+</table>
+}
+</div>

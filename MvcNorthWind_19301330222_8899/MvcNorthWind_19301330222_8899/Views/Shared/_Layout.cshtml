@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<link rel="stylesheet" href="@Url.Content("~/content/css/style.css")" type="text/css" />
+<link rel="stylesheet" href="@Url.Content("~/content/css/styled-elements.css")" type="text/css" />
+<link rel="stylesheet" href="@Url.Content("~/content/css/typography.css")" type="text/css" />
+
+<script type="text/javascript" src="@Url.Content("~/content/js/custom.js")"></script>
+<title>@ViewBag.Title</title>
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="sidebar">
+        <div id="logo">@Html.ActionLink("Northwind", "index", "product")</div>
+        @using (Html.BeginForm("search", "product", FormMethod.Get, new { id = "searchform" }))
+        {
+            <div>
+            	商品名称：<br />
+                <input type="text" value="Search..." name="pname" id="s" onfocus="defaultInput(this)" onblur="clearInput(this)" /><input type="submit" id="searchsubmit" value=" " />
+            </div>
+        }
+        
+        <div class="cat-list">
+        <h6>分类</h6>
+        
+        <ul>
+        @Html.Action("categoryList","Category")
+        </ul>
+        </div>
+    </div>
+    <div id="main">
+        <!-- HEADER -->
+        <div id="header">
+            <div id="page-title">查询结果</div>
+            
+            
+            <!-- Breadcrumb-->
+            <div id="breadcrumbs">
+                
+            </div>
+            <!-- ENDS Breadcrumb-->	
+        </div>
+        <!-- ENDS HEADER -->
+
+		<div id="content">
+        	<div id="page-content">
+				@RenderBody()
+            
+            
+            </div>
+        </div>
+	</div>
+</div>
+</body>
+</html>

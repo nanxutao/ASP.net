@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EmployeeInfo.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EmployeeInfoStoreContainer">
+    <EntitySet Name="Departmentset" EntityType="EmployeeInfo.Store.Departmentset" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employeeset" EntityType="EmployeeInfo.Store.Employeeset" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Projectset" EntityType="EmployeeInfo.Store.Projectset" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BankCardset" EntityType="EmployeeInfo.Store.BankCardset" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployeeProject" EntityType="EmployeeInfo.Store.EmployeeProject" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="DepartmentEmployee" Association="EmployeeInfo.Store.DepartmentEmployee">
+      <End Role="Department" EntitySet="Departmentset" />
+      <End Role="Employee" EntitySet="Employeeset" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeProject_Employee" Association="EmployeeInfo.Store.FK_EmployeeProject_Employee">
+      <End Role="Employee" EntitySet="Employeeset" />
+      <End Role="EmployeeProject" EntitySet="EmployeeProject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeProject_Project" Association="EmployeeInfo.Store.FK_EmployeeProject_Project">
+      <End Role="Project" EntitySet="Projectset" />
+      <End Role="EmployeeProject" EntitySet="EmployeeProject" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeBankCard" Association="EmployeeInfo.Store.EmployeeBankCard">
+      <End Role="Employee" EntitySet="Employeeset" />
+      <End Role="BankCard" EntitySet="BankCardset" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Departmentset">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" Nullable="false" />
+    <Property Name="OfficeRoom" Type="nvarchar" Nullable="true" />
+    <Property Name="Telephone" Type="nvarchar" Nullable="true" />
+    <Property Name="IsDeleted" Type="bit" Nullable="true" DefaultValue="false" />
+  </EntityType>
+  <EntityType Name="Employeeset">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeName" Type="nvarchar" Nullable="false" />
+    <Property Name="EmployeeNumber" Type="nvarchar" Nullable="false" />
+    <Property Name="Sex" Type="nvarchar" Nullable="false" />
+    <Property Name="Birthdate" Type="datetime" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" Nullable="true" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" />
+    <Property Name="HireDate" Type="datetime" Nullable="true" />
+    <Property Name="QuitDate" Type="datetime" Nullable="true" />
+    <Property Name="IsDeleted" Type="bit" Nullable="true" DefaultValue="false" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+    <Property Name="QQ" Type="nvarchar" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Projectset">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" Nullable="false" />
+    <Property Name="CreatDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="true" DefaultValue="false" />
+  </EntityType>
+  <EntityType Name="BankCardset">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardNumber" Type="nvarchar" Nullable="false" />
+    <Property Name="BankName" Type="nvarchar" Nullable="false" />
+    <Property Name="Employee_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeProject">
+    <Key>
+      <PropertyRef Name="Employees_ID" />
+      <PropertyRef Name="Projects_ID" />
+    </Key>
+    <Property Name="Employees_ID" Type="int" Nullable="false" />
+    <Property Name="Projects_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="DepartmentEmployee">
+    <End Role="Department" Type="EmployeeInfo.Store.Departmentset" Multiplicity="1" />
+    <End Role="Employee" Type="EmployeeInfo.Store.Employeeset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeBankCard">
+    <End Role="Employee" Type="EmployeeInfo.Store.Employeeset" Multiplicity="1" />
+    <End Role="BankCard" Type="EmployeeInfo.Store.BankCardset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BankCard">
+        <PropertyRef Name="Employee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeProject_Employee">
+    <End Role="Employee" Type="EmployeeInfo.Store.Employeeset" Multiplicity="1" />
+    <End Role="EmployeeProject" Type="EmployeeInfo.Store.EmployeeProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmployeeProject">
+        <PropertyRef Name="Employees_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeProject_Project">
+    <End Role="EmployeeProject" Type="EmployeeInfo.Store.EmployeeProject" Multiplicity="*" />
+    <End Role="Project" Type="EmployeeInfo.Store.Projectset" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EmployeeProject">
+        <PropertyRef Name="Projects_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EmployeeInfo" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="EmployeeInfoContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Departmentset" EntityType="EmployeeInfo.Department" />
+          <EntitySet Name="Employeeset" EntityType="EmployeeInfo.Employee" />
+          <EntitySet Name="Projectset" EntityType="EmployeeInfo.Project" />
+          <EntitySet Name="BankCardset" EntityType="EmployeeInfo.BankCard" />
+          <AssociationSet Name="DepartmentEmployee" Association="EmployeeInfo.DepartmentEmployee">
+            <End Role="Department" EntitySet="Departmentset" />
+            <End Role="Employee" EntitySet="Employeeset" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeProject" Association="EmployeeInfo.EmployeeProject">
+            <End Role="Employee" EntitySet="Employeeset" />
+            <End Role="Project" EntitySet="Projectset" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeBankCard" Association="EmployeeInfo.EmployeeBankCard">
+            <End Role="Employee" EntitySet="Employeeset" />
+            <End Role="BankCard" EntitySet="BankCardset" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DepartmentName" Nullable="false" />
+          <Property Type="String" Name="OfficeRoom" Nullable="true" />
+          <Property Type="String" Name="Telephone" Nullable="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" DefaultValue="false" />
+          <NavigationProperty Name="Employees" Relationship="EmployeeInfo.DepartmentEmployee" FromRole="Department" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="EmployeeName" Nullable="false" />
+          <Property Type="String" Name="EmployeeNumber" Nullable="false" />
+          <Property Type="String" Name="Sex" Nullable="false" />
+          <Property Type="DateTime" Name="Birthdate" Nullable="false" />
+          <Property Type="String" Name="PhoneNumber" Nullable="true" />
+          <Property Type="String" Name="Email" Nullable="true" />
+          <Property Type="DateTime" Name="HireDate" Nullable="true" />
+          <Property Type="DateTime" Name="QuitDate" Nullable="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" DefaultValue="false" />
+          <NavigationProperty Name="Department" Relationship="EmployeeInfo.DepartmentEmployee" FromRole="Employee" ToRole="Department" />
+          <Property Type="Int32" Name="DepartmentID" Nullable="false" />
+          <NavigationProperty Name="Projects" Relationship="EmployeeInfo.EmployeeProject" FromRole="Employee" ToRole="Project" />
+          <NavigationProperty Name="BankCard" Relationship="EmployeeInfo.EmployeeBankCard" FromRole="Employee" ToRole="BankCard" />
+          <Property Type="String" Name="QQ" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ProjectName" Nullable="false" />
+          <Property Type="String" Name="CustomerName" Nullable="false" />
+          <Property Type="DateTime" Name="CreatDate" Nullable="false" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="true" DefaultValue="false" />
+          <NavigationProperty Name="Employees" Relationship="EmployeeInfo.EmployeeProject" FromRole="Project" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="BankCard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CardNumber" Nullable="false" />
+          <Property Type="String" Name="BankName" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="EmployeeInfo.EmployeeBankCard" FromRole="BankCard" ToRole="Employee" />
+        </EntityType>
+        <Association Name="DepartmentEmployee">
+          <End Type="EmployeeInfo.Department" Role="Department" Multiplicity="1" />
+          <End Type="EmployeeInfo.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeeProject">
+          <End Type="EmployeeInfo.Employee" Role="Employee" Multiplicity="*" />
+          <End Type="EmployeeInfo.Project" Role="Project" Multiplicity="*" />
+        </Association>
+        <Association Name="EmployeeBankCard">
+          <End Type="EmployeeInfo.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="EmployeeInfo.BankCard" Role="BankCard" Multiplicity="0..1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EmployeeInfoStoreContainer" CdmEntityContainer="EmployeeInfoContainer">
+    <EntitySetMapping Name="Departmentset">
+      <EntityTypeMapping TypeName="IsTypeOf(EmployeeInfo.Department)">
+        <MappingFragment StoreEntitySet="Departmentset">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="OfficeRoom" ColumnName="OfficeRoom" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employeeset">
+      <EntityTypeMapping TypeName="IsTypeOf(EmployeeInfo.Employee)">
+        <MappingFragment StoreEntitySet="Employeeset">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="EmployeeNumber" ColumnName="EmployeeNumber" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="QuitDate" ColumnName="QuitDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="QQ" ColumnName="QQ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projectset">
+      <EntityTypeMapping TypeName="IsTypeOf(EmployeeInfo.Project)">
+        <MappingFragment StoreEntitySet="Projectset">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankCardset">
+      <EntityTypeMapping TypeName="IsTypeOf(EmployeeInfo.BankCard)">
+        <MappingFragment StoreEntitySet="BankCardset">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EmployeeProject" TypeName="EmployeeInfo.EmployeeProject" StoreEntitySet="EmployeeProject">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="ID" ColumnName="Employees_ID" />
+      </EndProperty>
+      <EndProperty Name="Project">
+        <ScalarProperty Name="ID" ColumnName="Projects_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmployeeBankCard" TypeName="EmployeeInfo.EmployeeBankCard" StoreEntitySet="BankCardset">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="ID" ColumnName="Employee_ID" />
+      </EndProperty>
+      <EndProperty Name="BankCard">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="EmployeeInfo" >
+        <EntityTypeShape EntityType="EmployeeInfo.Department" Width="1.5" PointX="1.5" PointY="2.125" Height="2.10502197265625" />
+        <EntityTypeShape EntityType="EmployeeInfo.Employee" Width="2" PointX="4.375" PointY="3.125" Height="3.7681689453124996" />
+        <EntityTypeShape EntityType="EmployeeInfo.Project" Width="1.5" PointX="8.125" PointY="2.25" Height="2.10502197265625" />
+        <EntityTypeShape EntityType="EmployeeInfo.BankCard" Width="1.5" PointX="5.25" PointY="0.5" Height="1.735433756510417" />
+        <AssociationConnector Association="EmployeeInfo.DepartmentEmployee">
+          <ConnectorPoint PointX="3" PointY="3.6775109863281248" />
+          <ConnectorPoint PointX="4.375" PointY="3.6775109863281248" />
+        </AssociationConnector>
+        <AssociationConnector Association="EmployeeInfo.EmployeeProject">
+          <ConnectorPoint PointX="6.375" PointY="3.7400109863281248" />
+          <ConnectorPoint PointX="8.125" PointY="3.7400109863281248" />
+        </AssociationConnector>
+        <AssociationConnector Association="EmployeeInfo.EmployeeBankCard">
+          <ConnectorPoint PointX="5.8125" PointY="3.125" />
+          <ConnectorPoint PointX="5.8125" PointY="2.235433756510417" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

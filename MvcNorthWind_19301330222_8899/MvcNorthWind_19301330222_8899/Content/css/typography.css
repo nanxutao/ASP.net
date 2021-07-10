@@ -1,0 +1,50 @@
+/* GENERAL ------------------------------------------------------------*/
+
+body {
+	line-height: 1em;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size:  100%;
+}
+
+#wrapper{
+	font-size: 14px;
+	line-height: 1.5em;
+}
+
+#wrapper p{ margin-bottom: 21px; }
+
+a.link-button{
+	text-decoration: none;
+	color: #606060;
+}
+
+a.link-button:hover{ color: #999; }
+
+a{
+	text-decoration: none;
+	color: #9a0202;
+}
+
+a:hover{ color: #631313; }	
+
+
+
+/* H's ------------------------------------------------------------*/
+
+h1,h2,h3,h4,h5,h6{ 
+	font-family: 'Yanone Kaffeesatz', arial, serif; 
+	line-height: 1em;
+}
+
+h1{ font-size: 34px;  }
+
+h2{ font-size: 34px; }
+
+h3{ font-size: 32px; }
+
+h4{ font-size: 30px; }
+
+h5{ font-size: 28px; }
+
+h6{ font-size: 26px; }
+

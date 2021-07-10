@@ -1,0 +1,97 @@
+﻿@model MvcBookList19301330222_0009.Models.Book
+
+@{
+    ViewBag.Title = "图书编辑";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Book</legend>
+
+        @Html.HiddenFor(model => model.id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.isbn)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.isbn)
+            @Html.ValidationMessageFor(model => model.isbn)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.bookName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.bookName)
+            @Html.ValidationMessageFor(model => model.bookName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.author)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.author)
+            @Html.ValidationMessageFor(model => model.author)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.press)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.press)
+            @Html.ValidationMessageFor(model => model.press)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.pressDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.pressDate)
+            @Html.ValidationMessageFor(model => model.pressDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.price)
+            @Html.ValidationMessageFor(model => model.price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.size)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.size)
+            @Html.ValidationMessageFor(model => model.size)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.weight)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.weight)
+            @Html.ValidationMessageFor(model => model.weight)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.format)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.format)
+            @Html.ValidationMessageFor(model => model.format)
+        </div>
+
+        <p>
+            <input type="submit" value="保存" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("返回图书列表", "Index")
+</div>

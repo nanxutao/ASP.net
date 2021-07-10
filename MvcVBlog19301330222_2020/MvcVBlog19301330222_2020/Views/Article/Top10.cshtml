@@ -1,0 +1,6 @@
+﻿@model IEnumerable<MvcVBlog19301330222_2020.Models.Article>
+<ul>
+@foreach (var item in Model) { 
+<li>@Html.ActionLink(item.Title, "ShowArticle", new { ID=item.ID})</li>
+}
+    </ul>

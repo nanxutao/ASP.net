@@ -1,0 +1,7 @@
+﻿@model IEnumerable<MvcNorthWind_19301330222_8899.Models.Categories>
+
+@foreach (var item in Model) {
+    <li>@Html.ActionLink(item.CategoryName+"("+item.Products.Count()+")","search", "product", new { id = item.CategoryID},null)</li>
+}
+
+</table>

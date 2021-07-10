@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Jason lv博客</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <link href="@Url.Content("~/Content/Images/jason.ico")" rel="shortcut icon" />
+    <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!--header-->
+    <div class="">
+        <div class="block_header">
+            <div class="SearchBar">
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <form name="s" action="/Article/search" method="get">
+                    <tr valign="middle" align="right">
+                        <td>
+                            <input type="text" name="key" class="button"/>
+                        </td>
+                        <td width="50">
+                            <input type="submit" value="搜索" class="submit"/>
+                        </td>
+                    </tr>
+                    </form>
+                </table>
+            </div>
+            <div class="clr"></div>
+            <div class="menu">
+                <ul>
+                    <li>@Html.ActionLink("网站首页", "index","article")</li>
+                    <li>@Html.ActionLink("关于我","about","Home")</li>
+                    <li>@Html.ActionLink("我要留言", "index","GuestBook")</li>
+                    <li>@Html.ActionLink("管理", "index", "Article", 
+                                            new { area = "admin" },null)</li>
+                </ul>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </div>
+    <div class="clr"></div>
+    <!--middle-->
+    <div class="middle">
+        <div class="body_resize">
+            <div class="News">
+                <img src="@Url.Content("~/Content/Images/news.gif")" 
+                    width="200" height="60" />
+                <div class="list_xw">
+                    @{
+                        Html.RenderAction("Top10", "Article");
+                    }
+                </div>
+                <img src="@Url.Content("~/Content/Images/list.jpg")" 
+                    width="200" height="60" />
+                <div class="list_fl">
+                @{
+                    Html.RenderAction("List", "Category");
+                    
+                }
+                </div>
+                <img src="@Url.Content("~/Content/Images/link.gif")" 
+                    width="200" height="60" />
+                <div class="list_lj">
+                    <ul>
+                        <li><a href='#' target='_blank'>扬州职业大学</a></li>
+                        <li><a href='#' target='_blank'>扬州教育学院</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mainbody">
+                @RenderBody()
+            </div>
+            <div class="clr"></div>
+        </div>
+    </div>
+    <div class="clr"></div>
+    <!--footer-->
+    <div class="footer">
+        <div class="resize">
+            <div>
+                <p>Jason lv Copyright Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
